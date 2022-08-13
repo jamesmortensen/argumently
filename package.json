@@ -1,0 +1,30 @@
+{
+  "name": "argumently",
+  "version": "0.0.1",
+  "description": "A simple utility to build a CLI tool and invoke different functions based on arguments passed in at runtime.",
+  "main": "args.js",
+  "scripts": {
+    "test": "node test/args.spec.js",
+    "build": "mkdir -p build && npx uglifyjs --compress --mangle -- args.js > build/args.js && cp package.json README.md build/",
+    "test:build": "npm run build && cp -r test build/ && cd build && npm test && rm -rf test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesmortensen/argumently.git"
+  },
+  "keywords": [
+    "cli-arguments",
+    "arguments",
+    "cli",
+    "parser"
+  ],
+  "author": "James Mortensen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamesmortensen/argumently/issues"
+  },
+  "homepage": "https://github.com/jamesmortensen/argumently#readme",
+  "devDependencies": {
+    "uglify-js": "^3.16.3"
+  }
+}
