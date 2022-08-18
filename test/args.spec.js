@@ -143,6 +143,31 @@ const Tester = new (function () {
         }
     }
 
+    testCases.checkForGettingAllArgs = function () {
+        const args = new Args(['--name', '--first', 'James', '--last', 'Mortensen']);
+        const argsArr = args.getAll();
+        if(argsArr.every((arg, index) => {
+            return args.has(arg);
+        }))
+            console.log('pass');
+        else {
+            console.error('FAIL!');
+            failures[new Error().stack.match('testCases\.(.+?) ')[1]] = 'Expected to retrieve all args as an array';
+        }
+    }
+
+    testCases.checkThatArgsIsEncapsulated = function () {
+        const args = new Args(['--name', '--first', 'James', '--last', 'Mortensen']);
+        const argsArr = args.getAll();
+        argsArr[0] = '--someotherarg';
+        if(args.get('--name'))
+            console.log('pass');
+        else {
+            console.error('FAIL!');
+            failures[new Error().stack.match('testCases\.(.+?) ')[1]] = 'Expected array to be a copy';
+        }
+    }
+
     testCases.checkForNamesExample = function () {
         const args = new Args(['--name', '--first', 'James', '--last', 'Mortensen']);
         if (checkMultipleArgsTestCase(args))
