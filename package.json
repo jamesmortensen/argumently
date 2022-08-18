@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node test/args.spec.js",
     "build": "mkdir -p build && npx uglifyjs --compress --mangle -- args.js > build/args.js && cp package.json README.md index.js build/",
-    "test:build": "npm run build && cp -r test build/ && cd build && npm test && rm -rf test"
+    "test:build": "npm run build && cp -r test build/ && cd build && npm test && node test/index.spec.js && rm -rf test"
   },
   "repository": {
     "type": "git",
