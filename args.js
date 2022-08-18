@@ -41,4 +41,4 @@ class Args {
     }
 }
 
-module.exports = (process.env.ARGUMENTLY_TESTING === 'true') ? Args : new Args(process.argv);
+module.exports = Args;

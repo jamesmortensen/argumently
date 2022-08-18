@@ -1,6 +1,5 @@
 // args.spec.js
 
-process.env.ARGUMENTLY_TESTING = 'true';
 
 const Args = require('../args');
 

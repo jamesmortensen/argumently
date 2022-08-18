@@ -1,8 +1,8 @@
 {
   "name": "argumently",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple utility to build a CLI tool and invoke different functions based on arguments passed in at runtime.",
-  "main": "args.js",
+  "main": "index.js",
   "scripts": {
     "test": "node test/args.spec.js",
     "build": "mkdir -p build && npx uglifyjs --compress --mangle -- args.js > build/args.js && cp package.json README.md build/",
